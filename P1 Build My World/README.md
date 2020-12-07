@@ -8,14 +8,17 @@ The **myrobot** lab part of RoboND Gazebo Basics lesson. The purpose of this lab
     .myrobot                           # myrobot lab main folder 
     ├── images                         # Code output image                   
     │   ├── output.png
-    ├── model                          # Model files of the two-wheeled robot
-    │   ├── robot
+    ├── model
+    │   ├── groundfloor                # building model files
+    │   │   ├── model.config
+    │   │   ├── model.sdf
+    │   ├── myrobot                    # Model files of the two-wheeled robot
     │   │   ├── model.config
     │   │   ├── model.sdf
     ├── script                         # Gazebo World plugin C++ script      
     │   ├── welcome_message.cpp
-    ├── world                          # Gazebo main World empty scene
-    │   ├── myworld
+    ├── world                          # Gazebo main World scene
+    │   ├── myworld.world
     ├── CMakeLists.txt                 # Link libraries 
     └──                              
 ```
