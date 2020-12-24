@@ -30,7 +30,7 @@ void process_image_callback(const sensor_msgs::Image img) {
 		// Turn left or right or go straight
 		if (pos < 0.3) {
           drive_robot(0.0, 0.5);
-        } else if (rate > 0.7) {
+        } else if (pos > 0.7) {
            drive_robot(0.0, -0.5);
         } else {
            drive_robot(1.0, 0.0);
