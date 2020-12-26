@@ -24,7 +24,7 @@ void process_image_callback(const sensor_msgs::Image img) {
   int x_min = 10000;
   int x_max = -1;
 
-  for (int y=img.height*0.8; y < img.height*1.2; y++) {
+  for (int y=img.height*0.4; y < img.height*0.6; y++) {
     for (int x=0; x < img.step; x++) {
       int i = y * img.step + x;
       if (img.data[i] == white_pixel) {
