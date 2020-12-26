@@ -20,28 +20,40 @@ void drive_robot(float linear_x, float angular_z) {
 void process_image_callback(const sensor_msgs::Image img) {
   const int white_pixel = 255;
 
-  for (int y=0; y < img.height; y++)
+  bool found = false;
+  int x_min = 10000;
+  int x_max = -1;
+
+  for (int y=img.height*0.8; y < img.height*1.2; y++) {
     for (int x=0; x < img.step; x++) {
       int i = y * img.step + x;
       if (img.data[i] == white_pixel) {
-        // determine horizontal position in percent
-        float pos = (float)x / img.step;
-        
-		// Turn left or right or go straight
-		if (pos < 0.3) {
-          drive_robot(0.0, 0.5);
-        } else if (pos > 0.7) {
-           drive_robot(0.0, -0.5);
-        } else {
-           drive_robot(1.0, 0.0);
-        }
-        // no more need to continue analysing
-        return;
+        found = true;
+        if (x<x_min) x_min = x;
+        if (x>x_max) x_max = x;
       }
     }
+  }
 
-  // no ball detected, stop robot
-  drive_robot(0.0, 0.0);
+  if (found) {
+    // center of ball
+    int center = (x_min + x_max) / 2;
+
+    // determine horizontal position in percent
+    float pos = (float)center / img.step;
+
+    // Turn left or right or go straight
+    if (pos < 0.3) {
+      drive_robot(0.0, 0.5);
+    } else if (pos > 0.7) {
+        drive_robot(0.0, -0.5);
+    } else {
+        drive_robot(1.0, 0.0);
+    }
+  } else {
+    // no ball detected, stop robot
+    drive_robot(0.0, 0.0);
+  }
 }
 
 int main(int argc, char** argv) {
