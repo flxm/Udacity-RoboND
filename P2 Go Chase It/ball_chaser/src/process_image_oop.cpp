@@ -41,7 +41,7 @@ public:
     for (int y=img.height*0.4; y < img.height*0.6; y++) {
       for (int x=0; x < img.step; x+=3) {
         int i = y * img.step + x;
-        if (img.data[i] == img.data[i+1] == img.data[i+2] == white_pixel) {
+        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
           found = true;
           if (x<x_min) x_min = x;
           if (x>x_max) x_max = x;
