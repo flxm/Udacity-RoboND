@@ -24,10 +24,10 @@ public:
   // Constructor
   ImageProcessor(ros::NodeHandle *n) {
     // Define a client service capable of requesting services from command_robot
-    client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
+    client = n->serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
 
     // Subscribe to /camera/rgb/image_raw topic to read the image data inside the process_image_callback function
-    ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 10, &ImageProcessor::process_image_callback, this);
+    ros::Subscriber sub1 = n->subscribe("/camera/rgb/image_raw", 10, &ImageProcessor::process_image_callback, this);
   }
 
   // This callback function continuously executes and reads the image data
