@@ -9,6 +9,8 @@ private:
   // ROS::Publisher motor commands;
   ros::Publisher motor_command_publisher;
 
+  ros::ServiceServer service;
+
 public:
   // Constructor
   DriveBot(ros::NodeHandle *n) {
@@ -16,7 +18,7 @@ public:
     motor_command_publisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 10);
 
     // Define a drive /ball_chaser/command_robot service with a handle_drive_request callback function
-    ros::ServiceServer service = n->advertiseService("/ball_chaser/command_robot", &DriveBot::handle_drive_request, this);
+    service = n->advertiseService("/ball_chaser/command_robot", &DriveBot::handle_drive_request, this);
   }
 
   // A handle_drive_request callback function that executes whenever a drive_bot service is requested

@@ -9,6 +9,8 @@ private:
   // Define a global client that can request services
   ros::ServiceClient client;
 
+  ros::Subscriber sub1;
+
   // This function calls the command_robot service to drive the robot in the specified direction
   void drive_robot(float linear_x, float angular_z) {
     ball_chaser::DriveToTarget srv;
@@ -27,7 +29,9 @@ public:
     client = n->serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
 
     // Subscribe to /camera/rgb/image_raw topic to read the image data inside the process_image_callback function
-    ros::Subscriber sub1 = n->subscribe("/camera/rgb/image_raw", 10, &ImageProcessor::process_image_callback, this);
+    sub1 = n->subscribe("/camera/rgb/image_raw", 10, &ImageProcessor::process_image_callback, this);
+
+    ROS_INFO("IP DONE");
   }
 
   // This callback function continuously executes and reads the image data
