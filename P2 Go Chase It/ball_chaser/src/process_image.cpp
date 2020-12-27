@@ -21,13 +21,13 @@ void process_image_callback(const sensor_msgs::Image img) {
   const int white_pixel = 255;
 
   bool found = false;
-  int x_min = 10000;
+  int x_min = img.step;
   int x_max = -1;
 
   for (int y=img.height*0.4; y < img.height*0.6; y++) {
-    for (int x=0; x < img.step; x++) {
+    for (int x=0; x < img.step; x+=3) {
       int i = y * img.step + x;
-      if (img.data[i] == white_pixel) {
+      if (img.data[i] == img.data[i+1] == img.data[i+2] == white_pixel) {
         found = true;
         if (x<x_min) x_min = x;
         if (x>x_max) x_max = x;
@@ -46,9 +46,9 @@ void process_image_callback(const sensor_msgs::Image img) {
     if (pos < 0.3) {
       drive_robot(0.0, 0.5);
     } else if (pos > 0.7) {
-        drive_robot(0.0, -0.5);
+      drive_robot(0.0, -0.5);
     } else {
-        drive_robot(1.0, 0.0);
+      drive_robot(1.0, 0.0);
     }
   } else {
     // no ball detected, stop robot
