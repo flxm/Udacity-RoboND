@@ -2,4 +2,6 @@
 
 ## Project 1 - Build my World using Gazebo
 
-## Prohect 2 - Go Chase It!
+## Project 2 - Go Chase It!
+
+## Project 3 - Where Am I?
