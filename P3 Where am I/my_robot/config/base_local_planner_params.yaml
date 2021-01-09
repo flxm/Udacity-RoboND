@@ -1,4 +1,5 @@
 controller_frequency: 10
+# planner_frequency 5
 
 TrajectoryPlannerROS:
   max_vel_x: 1.0 #0.5
@@ -6,6 +7,7 @@ TrajectoryPlannerROS:
   max_vel_theta: 1.57 #1.5
 
   min_in_place_vel_theta: 0.314
+  # min_in_place_vel_theta: 1.0
 
   acc_lim_theta: 3.14
   acc_lim_x: 2.0
@@ -19,5 +21,6 @@ TrajectoryPlannerROS:
   pdist_scale: 0.6 #0.6
   gdist_scale: 0.8 #0.8
   occdist_scale: 0.02
+  # occdist_scale: 1
 
   holonomic_robot: false
