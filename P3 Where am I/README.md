@@ -15,12 +15,14 @@ catkin_make
 source devel/setup.bash
 ```
 
-* Run ROS
+* Run Gazebo and RViz
+
 ```sh
 roslaunch my_robot world.launch
 ```
 
-* Run AMCL
+* Run AMCL in separate terminal
+
 ```sh
 roslaunch my_robot amcl.launch
 ```
