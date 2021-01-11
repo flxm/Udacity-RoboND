@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /PoseArray1
       Splitter Ratio: 0.5
     Tree Height: 614
   - Class: rviz/Selection
@@ -241,7 +242,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -261,7 +262,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: 0.290000021
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
@@ -274,8 +275,8 @@ Visualization Manager:
       Scale: 54.7356644
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
-      X: -6.87258959
-      Y: -2.55181241
+      X: 2.64588451
+      Y: 0.243439943
     Saved: ~
 Window Geometry:
   Displays:
@@ -293,5 +294,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1613
-  X: 0
-  Y: 0
+  X: 694
+  Y: 32
