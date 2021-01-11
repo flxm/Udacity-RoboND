@@ -21,6 +21,12 @@ source devel/setup.bash
 roslaunch my_robot world.launch
 ```
 
+* Run Teleop
+
+```sh
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+
 * Run AMCL in separate terminal
 
 ```sh
