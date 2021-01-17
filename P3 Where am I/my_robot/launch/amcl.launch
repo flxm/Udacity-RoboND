@@ -5,7 +5,8 @@
 
   <!-- AMCL Node -->
   <node name="amcl" pkg="amcl" type="amcl" output="screen">
-    <!-- <remap from="scan" to="my_robot/laser/scan" /> -->
+  <!-- <remap from="scan" to="/my_robot/laser/scan" /> -->
+  <!-- topic renamed in costmap_common_params.yaml -->
 
     <param name="odom_frame_id" value="odom" />
     <param name="odom_model_type" value="diff-corrected" />
@@ -15,12 +16,25 @@
     <!-- initial position -->
     <param name="initial_pose_x" value="0" />
     <param name="initial_pose_y" value="0" />
-<!--
+
 		<param name="min_particles" value="50"/>
-		<param name="max_particles" value="5000"/>
+		<param name="max_particles" value="2000"/>
 		<param name="update_min_a" value="0.05" />
 		<param name="update_min_d" value="0.05"/>
--->
+
+    <param name="transform_tolerance" value="0.2"/>
+
+    <param name="laser_min_range" value="0.1"/>
+    <param name="laser_max_range" value="10"/>
+    <param name="laser_max_beams" value="30"/>
+
+    <param name="laser_z_hit" value="0.95"/>
+    <param name="laser_z_rand" value="0.05"/>
+
+    <param name="odom_alpha1" value="0.02"/>
+    <param name="odom_alpha2" value="0.02"/>
+    <param name="odom_alpha3" value="0.02"/>
+    <param name="odom_alpha4" value="0.02"/>
   </node>
 
   <!-- Move Base -->
