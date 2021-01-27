@@ -1,3 +1,4 @@
+# image: map.pgm
 image: map_doors.png
 resolution: 0.01
 origin: [-15.0, -15.0, 0.0]
